@@ -1,0 +1,4 @@
+name: HungerGame
+version: '1.0-SNAPSHOT'
+main: fr.minepixl.hungerGame.Main
+api-version: '1.21'
