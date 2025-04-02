@@ -1,5 +1,8 @@
 package fr.minepixl.hungerGame;
 
+import fr.minepixl.hungerGame.Commands.CreateCmd;
+import fr.minepixl.hungerGame.Commands.JoinCmd;
+import fr.minepixl.hungerGame.Commands.TestCmd;
 import fr.minepixl.hungerGame.Event.EventClass;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,6 +17,9 @@ public final class Main extends JavaPlugin {
         getLogger().info(ChatColor.GREEN + "Le plugin démarre !");
         instance = this;
         getServer().getPluginManager().registerEvents(new EventClass(), instance);
+        getCommand("create").setExecutor(new CreateCmd());
+        getCommand("join").setExecutor(new JoinCmd());
+        getCommand("test").setExecutor(new TestCmd());
     }
 
     @Override
@@ -22,7 +28,5 @@ public final class Main extends JavaPlugin {
         getLogger().info(ChatColor.DARK_RED + "Le plugin s'arrete.");
     }
 
-    public static Main getInstance() {
-        return instance;
-    }
+    public static Main getInstance() {return instance;}
 }

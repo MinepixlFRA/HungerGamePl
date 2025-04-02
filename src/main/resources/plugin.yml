@@ -2,3 +2,20 @@ name: HungerGame
 version: '1.0-SNAPSHOT'
 main: fr.minepixl.hungerGame.Main
 api-version: '1.21'
+commands:
+  create:
+    description: Caca
+    permission: hg.create
+    permission-message: Nikmok
+  join:
+    description: Pipi
+    permission: hg.join
+    permission-message: sdfjklsj
+  test:
+    description: sdjfklsjkf
+    permission: hg.test
+    permission-message: laspk;dfjsk
+  quit:
+    description: sdjfklsjkf
+    permission: hg.quit
+    permission-message: laspk;dfjsk
