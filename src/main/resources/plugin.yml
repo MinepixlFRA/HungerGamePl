@@ -19,3 +19,11 @@ commands:
     description: sdjfklsjkf
     permission: hg.quit
     permission-message: laspk;dfjsk
+  loc:
+    description: sdjfklsjkf
+    permission: hg.loc
+    permission-message: laspk;dfjsk
+permissions:
+  hg.sign.create:
+    description: Creer des panneaux interactif.
+    default: op

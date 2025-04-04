@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Lobby {
 
-    private static int instance_counter;
+    private static int instance_counter = 0;
     private static ArrayList<Lobby> instance_list = new ArrayList<>();
 
     private int id;
@@ -37,7 +37,15 @@ public class Lobby {
         player.teleport(loc_room);
     }
 
+    public void quit(Player player) {
+        players_counter--;
+        players.remove(player);
+        player.setHealth(0);
+    }
+
     public int getId() {return this.id;}
+    public ArrayList<Player> getPlayers() {return this.players;}
+    public void setLoc_room(Location argLoc) {this.loc_room = argLoc;}
 
     public static ArrayList<Lobby> getInstance_list() {return instance_list;}
 }

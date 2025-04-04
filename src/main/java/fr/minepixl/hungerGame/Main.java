@@ -1,8 +1,6 @@
 package fr.minepixl.hungerGame;
 
-import fr.minepixl.hungerGame.Commands.CreateCmd;
-import fr.minepixl.hungerGame.Commands.JoinCmd;
-import fr.minepixl.hungerGame.Commands.TestCmd;
+import fr.minepixl.hungerGame.Commands.*;
 import fr.minepixl.hungerGame.Event.EventClass;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,7 +17,9 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EventClass(), instance);
         getCommand("create").setExecutor(new CreateCmd());
         getCommand("join").setExecutor(new JoinCmd());
+        getCommand("quit").setExecutor(new QuitCmd());
         getCommand("test").setExecutor(new TestCmd());
+        getCommand("loc").setExecutor(new SetLocCmd());
     }
 
     @Override
