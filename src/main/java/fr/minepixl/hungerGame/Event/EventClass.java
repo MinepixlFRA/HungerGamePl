@@ -2,13 +2,11 @@ package fr.minepixl.hungerGame.Event;
 
 import fr.minepixl.hungerGame.Utils.SignHgClass;
 import io.papermc.paper.event.player.PlayerOpenSignEvent;
-import org.bukkit.Bukkit;
 import org.bukkit.block.Sign;
 import org.bukkit.block.sign.Side;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class EventClass implements Listener {
@@ -26,13 +24,20 @@ public class EventClass implements Listener {
         sign.update();
         SignHgClass.instances.put(sign.getLocation(), SignHgClass.instances_count);
         SignHgClass.instances_count++;
+        event.getPlayer().sendMessage("------------------------");
+        event.getPlayer().sendMessage(String.valueOf(SignHgClass.instances));
+        event.getPlayer().sendMessage("------------------------");
     }
 
     @EventHandler
     public void deleteHgSign(BlockBreakEvent event) {
+        if (!(event.getBlock().getState() instanceof Sign)) return;
         if (event.getPlayer().hasPermission("hg.sign.create")) {
             if (SignHgClass.instances.containsKey(event.getBlock().getLocation())) {
-                SignHgClass.instances.
+                SignHgClass.instances.remove(event.getBlock().getLocation());
+                event.getPlayer().sendMessage("------------------------");
+                event.getPlayer().sendMessage(String.valueOf(SignHgClass.instances));
+                event.getPlayer().sendMessage("------------------------");
             }
         } else {
             event.setCancelled(true);
